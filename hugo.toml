@@ -1,5 +1,0 @@
-baseURL = 'https://aydingroupengineering.com/'
-locale = 'en-us'
-
-[markup.goldmark.renderer]
-    unsafe = true
