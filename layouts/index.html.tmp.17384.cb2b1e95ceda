@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta name="generator" content="Hugo 0.161.1"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aydın Grup Mühendislik</title>
+    <title>{{ .Title }}</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap');
 
@@ -13,7 +12,7 @@
             --mono: "IBM Plex Mono", "Consolas", "Courier New", monospace;
             --serif: "EB Garamond", "Garamond", "Baskerville", "Times New Roman", Times, serif;
             --rule: 1px solid #111;
-            --rule-soft: 1px solid #B5984A;  
+            --rule-soft: 1px solid #B5984A; /* internal block dividers — brand gold */
             --brand-blue: #2D5B8E;
             --brand-gold: #B5984A;
         }
@@ -49,7 +48,7 @@
             position: absolute;
             left: 0;
             right: 0;
-            bottom: -8px;  
+            bottom: -8px; /* 4px gap below the 3px blue rule, then 1px gold */
             height: 1px;
             background: var(--brand-gold);
         }
@@ -112,17 +111,17 @@
 
         strong { font-weight: 600; color: #000; }
 
-         
+        /* Two-region article: cols (overview + sticky infobox) then full-width */
         .article-cols {
             display: grid;
             grid-template-columns: 1fr 360px;
             gap: 36px;
-             
+            /* no align-items — let aside stretch full row height so sticky has room */
             margin-bottom: 28px;
         }
         .article-main { min-width: 0; }
-        .article-aside { min-width: 0; }  
-        .article-full {   }
+        .article-aside { min-width: 0; } /* stretches to row height by default */
+        .article-full { /* full-width container for 4 DUA2, References, Archive, Contact */ }
 
         .image-frame {
             border: var(--rule);
@@ -141,7 +140,7 @@
             letter-spacing: 0.02em;
         }
 
-         
+        /* Quick reference data card — sticky infobox */
         .quick-ref {
             position: sticky;
             top: 24px;
@@ -184,7 +183,7 @@
         }
         .quick-ref .qr-row {
             display: grid;
-            grid-template-columns: 130px 1fr;
+            grid-template-columns: 115px 1fr;
             column-gap: 10px;
             line-height: 1.35;
             align-items: baseline;
@@ -205,7 +204,7 @@
             padding-left: 14px;
         }
 
-         
+        /* Scope source citation */
         .scope-quote {
             font-family: var(--serif);
             font-style: italic;
@@ -226,14 +225,14 @@
             letter-spacing: 0.04em;
         }
 
-         
+        /* Representations grid — hairline-only, no fills */
         .grid-distributors {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 0;
             margin: 18px 0;
             border: var(--rule);
-            overflow: hidden;  
+            overflow: hidden; /* BFC: don't overlap the floated infobox */
         }
         .dist-item {
             padding: 16px 18px;
@@ -261,14 +260,14 @@
         }
         .dist-item p { margin: 0; font-size: 14pt; line-height: 1.5; }
 
-         
+        /* 4 DUA2 — figure left of spec block */
         .spec-with-figure {
             display: grid;
             grid-template-columns: 300px 1fr;
             gap: 28px;
             align-items: start;
             margin: 18px 0;
-            overflow: hidden;  
+            overflow: hidden; /* BFC */
         }
         .spec-figure { margin: 0; }
         .spec-figure img {
@@ -289,7 +288,7 @@
         }
         .spec-with-figure .spec-block { margin: 0; }
 
-         
+        /* Spec block — data sheet aesthetic */
         .spec-block {
             margin: 10px 0;
             padding: 8px 12px;
@@ -325,7 +324,7 @@
         .spec-key { color: #555; }
         .spec-val { color: #000; }
 
-         
+        /* Two-column lists — density for short bullet sets */
         .markdown-content ul.two-col,
         .markdown-content ol.two-col {
             column-count: 2;
@@ -337,7 +336,7 @@
             margin-bottom: 8px;
         }
 
-         
+        /* Inline figure (polar chart, etc.) */
         .inline-figure {
             margin: 22px 0;
             padding: 0;
@@ -360,7 +359,7 @@
             line-height: 1.5;
         }
 
-         
+        /* References — letterpress catalog: group label + hanging-indent entries */
         .refs {
             margin: 16px 0 0;
             padding: 0;
@@ -393,7 +392,7 @@
             font-feature-settings: "onum" 1, "kern" 1;
         }
 
-         
+        /* References ledger — US Graphics terminal aesthetic */
         .ref-ledger {
             width: auto;
             border-collapse: collapse;
@@ -436,7 +435,7 @@
         }
         .ref-ledger tfoot strong { font-weight: 700; color: #000; }
 
-         
+        /* Archive plate grid */
         .archive-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
@@ -482,7 +481,7 @@
             margin-right: 6px;
         }
 
-         
+        /* Nomenclature footnote */
         .nomenclature {
             margin: 40px 0 0;
             padding-top: 14px;
@@ -498,7 +497,7 @@
         }
         .nomenclature .arrow { color: #999; margin: 0 8px; }
 
-         
+        /* Contact block — registry-style, multi-role */
         .contact-block {
             margin-top: 50px;
             padding-top: 22px;
@@ -625,339 +624,125 @@
 <body>
 
     <header>
-        
-        
-        
-        
-            <div class="corp-mark"><img src="/images/logo.png" alt="Aydın Grup Mühendislik"></div>
-        
+        {{ $logo := "" }}
+        {{ if (fileExists "static/images/logo.svg") }}{{ $logo = "images/logo.svg" }}
+        {{ else if (fileExists "static/images/logo.png") }}{{ $logo = "images/logo.png" }}
+        {{ else if (fileExists "static/images/logo.jpg") }}{{ $logo = "images/logo.jpg" }}
+        {{ else if (fileExists "static/images/logo.jpeg") }}{{ $logo = "images/logo.jpeg" }}
+        {{ end }}
+        {{ if $logo }}
+            <div class="corp-mark"><img src="{{ $logo | relURL }}" alt="Aydın Grup Mühendislik"></div>
+        {{ else }}
+            <div class="corp-mark corp-mark--placeholder" aria-label="Logo slot — drop logo.svg/.png/.jpg into static/images/ to populate"></div>
+        {{ end }}
         <div class="header-text">
-            <h1>Aydın Grup Mühendislik</h1>
+            <h1>{{ .Title }}</h1>
             <div class="subtitle">
-                Mühendislik · Telekomünikasyon · Yayın Sistemleri<br>
-                Engineering · Telecommunications · Broadcasting Systems
+                {{ .Params.brand_subtitle_tr }}<br>
+                {{ .Params.brand_subtitle_en }}
                 <span class="sep">·</span>
-                <span class="est">Est. 1989</span>
+                <span class="est">{{ .Params.established }}</span>
             </div>
         </div>
     </header>
 
-    
-    
-    
-    
+    {{ $parts := split .Content "<!--split-->" }}
+    {{ $overview := index $parts 0 }}
+    {{ $detail := "" }}
+    {{ if gt (len $parts) 1 }}{{ $detail = index $parts 1 }}{{ end }}
 
     <div class="article-cols">
         <div class="article-main">
             <div class="markdown-content">
-                <h2 id="tarihçe--history">Tarihçe / History</h2>
-<p>The firm was founded in the late 1980s by Aydın Özoğlu (METU Electrical-Electronics Engineering, 1984) as <strong>Aydın Mühendislik</strong>, headquartered in Gölbaşı, Ankara, with an İstanbul branch in Kadıköy. The firm&rsquo;s principal commercial activity ran through the 1990s, building broadcasting infrastructure for the rapid expansion of Turkish private television and radio during that decade in parallel with state-network work for the PTT.</p>
-<h2 id="faaliyet-alanı--scope-of-activity">Faaliyet Alanı / Scope of Activity</h2>
-<blockquote class="scope-quote">
-"The field of activities of Aydın Grup are electronics, telecommunications and FM&amp;TV Broadcasting Transmitters."
-<cite>Excerpt from Aydın Grup Mühendislik's late-1990s technical brochure</cite>
-</blockquote>
-<p>The firm&rsquo;s documented operations covered radio and television broadcasting systems at varying output power (compliant with <code>TGM</code> and <code>RTÜK</code> standards); satellite antennas, coaxial cables, accessories, connectors, and electron tubes for importation and sale; VHF and UHF radio and television antennas, including in-house design and manufacturing of antenna splitters; FM radio and television antenna tower configuration design and complete antenna system installation; FM and TV station project execution, including measurement, on-air commissioning, and modifications to existing stations per <code>RTÜK</code> and <code>TGM</code> standards; and GSM base station and communications electronics system installation.</p>
-<h2 id="uluslararası-temsilcilikler--international-representations">Uluslararası Temsilcilikler / International Representations</h2>
-<p>Turkey representations held by the firm during its active period (per company profile, late 1990s brochure):</p>
-<div class="grid-distributors">
-  <div class="dist-item">
-    <strong>ANDREW CORPORATION</strong>
-    <span class="dist-country">USA</span>
-    <p>RF cables and connectors, microwave transmission lines, high-performance microwave antennas, satellite communication antennas, tunnel-comms radiating cable systems.</p>
-  </div>
-  <div class="dist-item">
-    <strong>ROHDE &amp; SCHWARZ</strong>
-    <span class="dist-country">Germany</span>
-    <p>High-power TV transmitters and microprocessor-controlled transmitter networks. Equipment backbone of the firm's PTT national-network deployments.</p>
-  </div>
-  <div class="dist-item">
-    <strong>PLISCH NACHRICHTENTECHNIK</strong>
-    <span class="dist-country">Germany · founded 1955</span>
-    <p>Solid-state low-power and tube high-power TV transmitters, drivers, broadcast test and measurement equipment, Digital Audio Broadcasting (DAB) systems.</p>
-  </div>
-  <div class="dist-item">
-    <strong>CTE INTERNATIONAL</strong>
-    <span class="dist-country">Italy</span>
-    <p>FM transmitter line — <code>CTE 250 W</code>, <code>CTE 1 kW</code>, <code>CTE 5 kW</code>. Used to commission Show Radyo, TGRT FM, Süper FM, Olay FM and numerous regional FM stations.</p>
-  </div>
-</div>
-
+                {{ $overview | safeHTML }}
             </div>
         </div>
 
         <aside class="article-aside">
-            
+            {{ with .Params.quick_reference }}
             <div class="quick-ref">
-                
+                {{ with $.Params.qr_image }}
                 <figure class="qr-figure">
-                    <img src="/images/kule.jpg" alt="Self-supporting steel transmitter towers — reference installation" loading="lazy">
-                    <figcaption>Self-supporting steel transmitter towers — reference installation</figcaption>
+                    <img src="{{ .file | relURL }}" alt="{{ .caption }}" loading="lazy">
+                    <figcaption>{{ .caption }}</figcaption>
                 </figure>
-                
+                {{ end }}
                 <div class="quick-ref-heading">Quick Reference</div>
                 <dl>
-                
+                {{ range . }}
                     <div class="qr-row">
-                        <span class="qr-k">Established</span>
-                        <span class="qr-v">Late 1980s</span>
+                        <span class="qr-k">{{ .k }}</span>
+                        <span class="qr-v">{{ .v }}</span>
                     </div>
-                
-                    <div class="qr-row">
-                        <span class="qr-k">Founder</span>
-                        <span class="qr-v">Aydın Özoğlu</span>
-                    </div>
-                
-                    <div class="qr-row">
-                        <span class="qr-k">Education</span>
-                        <span class="qr-v">METU EEE, 1984</span>
-                    </div>
-                
-                    <div class="qr-row">
-                        <span class="qr-k">HQ</span>
-                        <span class="qr-v">Gölbaşı, Ankara</span>
-                    </div>
-                
-                    <div class="qr-row">
-                        <span class="qr-k">Branch</span>
-                        <span class="qr-v">Kadıköy, İstanbul</span>
-                    </div>
-                
-                    <div class="qr-row">
-                        <span class="qr-k">Domain</span>
-                        <span class="qr-v">Broadcasting · Telecom</span>
-                    </div>
-                
-                    <div class="qr-row">
-                        <span class="qr-k">Representations</span>
-                        <span class="qr-v">Andrew · R&amp;S · PLISCH · CTE</span>
-                    </div>
-                
-                    <div class="qr-row">
-                        <span class="qr-k">Deployed</span>
-                        <span class="qr-v">~500 FM/TV stations</span>
-                    </div>
-                
-                    <div class="qr-row">
-                        <span class="qr-k">In-house</span>
-                        <span class="qr-v">4 DUA2 UHF antenna</span>
-                    </div>
-                
-                    <div class="qr-row">
-                        <span class="qr-k">Factory</span>
-                        <span class="qr-v">Ankara (own facility)</span>
-                    </div>
-                
+                {{ end }}
                 </dl>
             </div>
-            
+            {{ end }}
         </aside>
     </div>
 
     <div class="article-full">
 
             <div class="markdown-content">
-                
-<h2 id="özgün-mühendislik--4-dua2-uhf-verici-anteni--proprietary-engineering--4-dua2-uhf-antenna">Özgün Mühendislik — 4 DUA2 UHF Verici Anteni / Proprietary Engineering — 4 DUA2 UHF Antenna</h2>
-<p>The firm&rsquo;s principal in-house engineered product was a four-dipole UHF television transmitter antenna covering the full broadcast spectrum (<code>470–860 MHz</code>, Channels 21–69). Aluminum radiator elements were enclosed in a polyester radome protecting against rain and ice loading; the assembly mounted directly to round or square steel masts via integrated clamps. Connector options were selectable per customer requirement, with horizontal or vertical polarization configurations available.</p>
-<div class="spec-with-figure">
-  <figure class="spec-figure">
-    <img src="images/dipole.png" alt="4 DUA2 radiation pattern at F = 660 MHz, vertical (DİKEY) and horizontal (YATAY) polarization">
-    <figcaption>Radiation pattern at <code>F = 660 MHz</code> — vertical / horizontal polarization.</figcaption>
-  </figure>
-  <div class="spec-block spec-block--two-col">
-    <div class="spec-group">
-      <h3 class="spec-heading">Electronic</h3>
-      <div class="spec-grid">
-        <div class="spec-key">Frequency Band</div><div class="spec-val">470–860 MHz</div>
-        <div class="spec-key">Input Impedance</div><div class="spec-val">50 Ω</div>
-        <div class="spec-key">Input Connector</div><div class="spec-val">N, DIN 7/16, EIA 7/8 flange</div>
-        <div class="spec-key">VSWR</div><div class="spec-val">≤ 1.15 (return loss &gt; 1.15 dB)</div>
-        <div class="spec-key">Gain</div><div class="spec-val">10.5 – 12.5 dB</div>
-        <div class="spec-key">Polarization</div><div class="spec-val">Vertical or Horizontal</div>
-        <div class="spec-key">Maximum Power</div><div class="spec-val">1000 W</div>
-      </div>
-    </div>
-    <div class="spec-group">
-      <h3 class="spec-heading">Mechanical</h3>
-      <div class="spec-grid">
-        <div class="spec-key">Wind Resistance @ 160 km/h</div><div class="spec-val">715 N front / 120 N rear</div>
-        <div class="spec-key">Max Wind Speed</div><div class="spec-val">220 km/h</div>
-        <div class="spec-key">Weight</div><div class="spec-val">~12 kg</div>
-        <div class="spec-key">Dimensions</div><div class="spec-val">892 × 485 × 190 mm</div>
-        <div class="spec-key">Mast Diameter</div><div class="spec-val">80–120 mm</div>
-        <div class="spec-key">Construction</div><div class="spec-val">Aluminum elements, polyester radome</div>
-      </div>
-    </div>
-  </div>
-</div>
-<h2 id="referanslar--references">Referanslar / References</h2>
-<table class="ref-ledger">
-<thead>
-<tr><th>Project</th><th>Description</th><th>Client</th><th>Equipment</th></tr>
-</thead>
-<tbody>
-<tr><td>Show TV</td><td>National private TV network</td><td>Turn-key</td><td>R&amp;S / PLISCH</td></tr>
-<tr><td>Cine 5</td><td>National private TV network</td><td>Turn-key</td><td>R&amp;S / PLISCH</td></tr>
-<tr><td>TGRT</td><td>National private TV network</td><td>Turn-key</td><td>R&amp;S / PLISCH</td></tr>
-<tr><td>Show Radyo</td><td>FM radio network</td><td>Turn-key</td><td>CTE</td></tr>
-<tr><td>TGRT FM</td><td>FM radio network</td><td>Turn-key</td><td>CTE</td></tr>
-<tr><td>Süper FM</td><td>FM radio network</td><td>Turn-key</td><td>CTE</td></tr>
-<tr><td>Olay FM</td><td>FM radio network</td><td>Turn-key</td><td>CTE</td></tr>
-<tr><td>TV-4 project</td><td>7 × 20 kW UHF TV transmitters · 1-yr maintenance</td><td>PTT</td><td>R&amp;S</td></tr>
-<tr><td>PTT FM fleet</td><td>86 units (71 + 15) · multi-year maintenance</td><td>PTT</td><td>R&amp;S</td></tr>
-<tr><td>PTT TVRO</td><td>6 × 6 m satellite antennas</td><td>PTT</td><td>—</td></tr>
-<tr><td>Çamlıca</td><td>100 m self-supporting tower + TV/FM antenna system</td><td>Structural</td><td>—</td></tr>
-<tr><td>TGART</td><td>27 × FM/TV units (250 W · 8 kW EIA 7/8 · other)</td><td>TGART</td><td>—</td></tr>
-<tr><td>Various</td><td>≈ 72 × 1 kW TX installations</td><td>—</td><td>—</td></tr>
-<tr><td>Andrew line</td><td>Coaxial transmission supply across project scales</td><td>Various</td><td>Andrew</td></tr>
-</tbody>
-<tfoot>
-<tr><td colspan="4"><strong>≈ 500 FM and TV broadcasting stations</strong> deployed across Turkey · governmental and private operators · primary-source aggregate figure</td></tr>
-</tfoot>
-</table>
-<h2 id="birincil-kaynak-arşivi--primary-source-archive">Birincil Kaynak Arşivi / Primary Source Archive</h2>
-<p>Original technical brochure plates, c. late 1990s, bilingual Turkish / English. The corporate record below precedes the firm&rsquo;s digital presence and is reproduced here as the primary documentary source.</p>
-
+                {{ $detail | safeHTML }}
             </div>
 
-            
+            {{ with .Params.archive_plates }}
             <div class="archive-grid">
-                
-                <a class="plate" href="/images/signal-2026-05-26-195451.jpeg" target="_blank" rel="noopener">
+                {{ range $i, $p := . }}
+                <a class="plate" href="{{ $p.file | relURL }}" target="_blank" rel="noopener">
                     <span class="plate-frame">
-                        <img src="/images/signal-2026-05-26-195451.jpeg" alt="Brochure cover — Aydın Mühendislik wordmark over steel tower" loading="lazy">
+                        <img src="{{ $p.file | relURL }}" alt="{{ $p.caption }}" loading="lazy">
                     </span>
                     <span class="plate-caption">
-                        <span class="plate-index">Pl. 01</span>Brochure cover — Aydın Mühendislik wordmark over steel tower
+                        <span class="plate-index">Pl. {{ printf "%02d" (add $i 1) }}</span>{{ $p.caption }}
                     </span>
                 </a>
-                
-                <a class="plate" href="/images/signal-2026-05-26-195408_003.jpeg" target="_blank" rel="noopener">
-                    <span class="plate-frame">
-                        <img src="/images/signal-2026-05-26-195408_003.jpeg" alt="Cover variant — corporate headquarters facade" loading="lazy">
-                    </span>
-                    <span class="plate-caption">
-                        <span class="plate-index">Pl. 02</span>Cover variant — corporate headquarters facade
-                    </span>
-                </a>
-                
-                <a class="plate" href="/images/signal-2026-05-26-195226.png" target="_blank" rel="noopener">
-                    <span class="plate-frame">
-                        <img src="/images/signal-2026-05-26-195226.png" alt="Inside montage — R&amp;S equipment, vacuum tube, tower" loading="lazy">
-                    </span>
-                    <span class="plate-caption">
-                        <span class="plate-index">Pl. 03</span>Inside montage — R&amp;S equipment, vacuum tube, tower
-                    </span>
-                </a>
-                
-                <a class="plate" href="/images/signal-2026-05-26-195408.jpeg" target="_blank" rel="noopener">
-                    <span class="plate-frame">
-                        <img src="/images/signal-2026-05-26-195408.jpeg" alt="Company profile spread — scope statement &#43; R&amp;S systems" loading="lazy">
-                    </span>
-                    <span class="plate-caption">
-                        <span class="plate-index">Pl. 04</span>Company profile spread — scope statement &#43; R&amp;S systems
-                    </span>
-                </a>
-                
-                <a class="plate" href="/images/signal-2026-05-26-195408_002.jpeg" target="_blank" rel="noopener">
-                    <span class="plate-frame">
-                        <img src="/images/signal-2026-05-26-195408_002.jpeg" alt="Turn-key FM / TV station reference page &#43; project ledger" loading="lazy">
-                    </span>
-                    <span class="plate-caption">
-                        <span class="plate-index">Pl. 05</span>Turn-key FM / TV station reference page &#43; project ledger
-                    </span>
-                </a>
-                
-                <a class="plate" href="/images/signal-2026-05-26-195408_004.jpeg" target="_blank" rel="noopener">
-                    <span class="plate-frame">
-                        <img src="/images/signal-2026-05-26-195408_004.jpeg" alt="Andrew — cables, microwave, tunnel comms, satellite antennas" loading="lazy">
-                    </span>
-                    <span class="plate-caption">
-                        <span class="plate-index">Pl. 06</span>Andrew — cables, microwave, tunnel comms, satellite antennas
-                    </span>
-                </a>
-                
-                <a class="plate" href="/images/signal-2026-05-26-195408_005.jpeg" target="_blank" rel="noopener">
-                    <span class="plate-frame">
-                        <img src="/images/signal-2026-05-26-195408_005.jpeg" alt="CTE — 250 W / 1 kW / 5 kW FM transmitters" loading="lazy">
-                    </span>
-                    <span class="plate-caption">
-                        <span class="plate-index">Pl. 07</span>CTE — 250 W / 1 kW / 5 kW FM transmitters
-                    </span>
-                </a>
-                
-                <a class="plate" href="/images/signal-2026-05-26-195408_006.jpeg" target="_blank" rel="noopener">
-                    <span class="plate-frame">
-                        <img src="/images/signal-2026-05-26-195408_006.jpeg" alt="PLISCH — TV transmitters &#43; corporate address block" loading="lazy">
-                    </span>
-                    <span class="plate-caption">
-                        <span class="plate-index">Pl. 08</span>PLISCH — TV transmitters &#43; corporate address block
-                    </span>
-                </a>
-                
-                <a class="plate" href="/images/signal-2026-05-26-195408_007.jpeg" target="_blank" rel="noopener">
-                    <span class="plate-frame">
-                        <img src="/images/signal-2026-05-26-195408_007.jpeg" alt="4 DUA2 UHF antenna — description and field photo" loading="lazy">
-                    </span>
-                    <span class="plate-caption">
-                        <span class="plate-index">Pl. 09</span>4 DUA2 UHF antenna — description and field photo
-                    </span>
-                </a>
-                
-                <a class="plate" href="/images/signal-2026-05-26-195408_008.jpeg" target="_blank" rel="noopener">
-                    <span class="plate-frame">
-                        <img src="/images/signal-2026-05-26-195408_008.jpeg" alt="4 DUA2 specification sheet &#43; polar pattern" loading="lazy">
-                    </span>
-                    <span class="plate-caption">
-                        <span class="plate-index">Pl. 10</span>4 DUA2 specification sheet &#43; polar pattern
-                    </span>
-                </a>
-                
+                {{ end }}
             </div>
-            
+            {{ end }}
 
-            
+            {{ with .Params.contact }}
             <section class="contact-block">
                 <h3>Corporate Information &amp; Inquiries</h3>
 
                 <div class="contact-roles">
                     <div class="contact-role">
                         <span class="role-label">Principal</span>
-                        <span class="role-name">Aydın Özoğlu</span> — Founder &amp; Engineer
-                        <span class="role-credential">METU Electrical-Electronics Engineering, 1984</span>
+                        <span class="role-name">{{ .principal_name }}</span> — {{ .principal_role }}
+                        <span class="role-credential">{{ .principal_credential }}</span>
                     </div>
                     <div class="contact-role">
                         <span class="role-label">Technical Liaison</span>
-                        <span class="role-name">Orkun Özoğlu</span> — Mechanical &amp; Software Engineer
-                        <span class="role-credential">METU Mechanical Engineering, 2014 · son of the founder</span>
+                        <span class="role-name">{{ .liaison_name }}</span> — {{ .liaison_role }}
+                        <span class="role-credential">{{ .liaison_credential }}</span>
                     </div>
                 </div>
 
                 <div class="contact-direct contact-2col">
-                    <div class="row"><span class="k">Email</span><span><a href="mailto:office@aydingruptech.com">office@aydingruptech.com</a></span></div>
-                    <div class="row"><span class="k">Present Base</span><span>Bursa, Türkiye</span></div>
+                    <div class="row"><span class="k">Email</span><span><a href="mailto:{{ .email }}">{{ .email }}</a></span></div>
+                    <div class="row"><span class="k">Present Base</span><span>{{ .present_base }}</span></div>
                 </div>
 
                 <div class="contact-archive">
                     <div class="archive-note">Historical headquarters · Archive of record</div>
                     <div class="archive-2col">
                         <div class="archive-col">
-                            <div class="row"><span class="k">Ankara HQ</span><span>PK 74, Gölbaşı (Oğulbey), Ankara 06830</span></div>
-                            <div class="row"><span class="k">Tel</span><span>&#43;90 312 615 51 80 (20 hat)</span></div>
-                            <div class="row"><span class="k">Faks</span><span>&#43;90 312 615 52 01</span></div>
+                            <div class="row"><span class="k">Ankara HQ</span><span>{{ .archive_hq_address }}</span></div>
+                            <div class="row"><span class="k">Tel</span><span>{{ .archive_hq_tel }}</span></div>
+                            <div class="row"><span class="k">Faks</span><span>{{ .archive_hq_fax }}</span></div>
                         </div>
                         <div class="archive-col">
-                            <div class="row"><span class="k">İstanbul Şb.</span><span>Acıbadem Cad. 115/3, Kadıköy, İstanbul</span></div>
-                            <div class="row"><span class="k">Tel</span><span>&#43;90 216 326 45 16–19</span></div>
+                            <div class="row"><span class="k">İstanbul Şb.</span><span>{{ .archive_istanbul_address }}</span></div>
+                            <div class="row"><span class="k">Tel</span><span>{{ .archive_istanbul_tel }}</span></div>
                         </div>
                     </div>
                 </div>
             </section>
-            
+            {{ end }}
 
             <footer>
-                <div class="footer-line">&copy; 2026 Aydın Grup Mühendislik — Corporate registry · Primary historical record.</div>
+                <div class="footer-line">&copy; {{ now.Format "2006" }} {{ .Title }} — Corporate registry · Primary historical record.</div>
                 <div class="footer-line footer-steward">Archive maintained by Orkun Özoğlu, son of the founder · est. 2026</div>
             </footer>
 

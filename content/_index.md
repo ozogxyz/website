@@ -11,7 +11,7 @@ quick_reference:
   - { k: "Education", v: "METU EEE, 1984" }
   - { k: "HQ", v: "Gölbaşı, Ankara" }
   - { k: "Branch", v: "Kadıköy, İstanbul" }
-  - { k: "Domain", v: "RF · Broadcasting · Telecom" }
+  - { k: "Domain", v: "Broadcasting · Telecom" }
   - { k: "Representations", v: "Andrew · R&S · PLISCH · CTE" }
   - { k: "Deployed", v: "~500 FM/TV stations" }
   - { k: "In-house", v: "4 DUA2 UHF antenna" }
@@ -65,7 +65,7 @@ The firm was founded in the late 1980s by Aydın Özoğlu (METU Electrical-Elect
 
 <blockquote class="scope-quote">
 "The field of activities of Aydın Grup are electronics, telecommunications and FM&amp;TV Broadcasting Transmitters."
-<cite>Primary technical brochure, c. late 1990s — verbatim, English page</cite>
+<cite>Excerpt from Aydın Grup Mühendislik's late-1990s technical brochure</cite>
 </blockquote>
 
 The firm's documented operations covered radio and television broadcasting systems at varying output power (compliant with `TGM` and `RTÜK` standards); satellite antennas, coaxial cables, accessories, connectors, and electron tubes for importation and sale; VHF and UHF radio and television antennas, including in-house design and manufacturing of antenna splitters; FM radio and television antenna tower configuration design and complete antenna system installation; FM and TV station project execution, including measurement, on-air commissioning, and modifications to existing stations per `RTÜK` and `TGM` standards; and GSM base station and communications electronics system installation.

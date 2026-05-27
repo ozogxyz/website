@@ -114,7 +114,7 @@
         /* Two-region article: cols (overview + sticky infobox) then full-width */
         .article-cols {
             display: grid;
-            grid-template-columns: 1fr 320px;
+            grid-template-columns: 1fr 360px;
             gap: 36px;
             /* no align-items — let aside stretch full row height so sticky has room */
             margin-bottom: 28px;
@@ -146,7 +146,7 @@
             top: 24px;
             padding: 14px 0;
             font-family: var(--mono);
-            font-size: 9pt;
+            font-size: 9.5pt;
         }
         .qr-figure {
             margin: 0 -4px 12px;
@@ -183,7 +183,7 @@
         }
         .quick-ref .qr-row {
             display: grid;
-            grid-template-columns: 115px 1fr;
+            grid-template-columns: 130px 1fr;
             column-gap: 10px;
             line-height: 1.35;
             align-items: baseline;
@@ -204,24 +204,24 @@
             padding-left: 14px;
         }
 
-        /* Scope pull-quote */
+        /* Scope source citation */
         .scope-quote {
             font-family: var(--serif);
             font-style: italic;
-            font-size: 15pt;
-            line-height: 1.55;
-            margin: 12px 0 22px;
-            padding: 4px 0 4px 20px;
-            border-left: 3px solid #000;
+            font-size: 13.5pt;
+            line-height: 1.45;
+            margin: 8px 0 16px;
+            padding: 2px 0 2px 14px;
+            border-left: 2px solid var(--brand-gold);
             color: #000;
         }
         .scope-quote cite {
             display: block;
-            margin-top: 10px;
+            margin-top: 6px;
             font-family: var(--mono);
             font-style: normal;
-            font-size: 9pt;
-            color: #555;
+            font-size: 8.5pt;
+            color: #777;
             letter-spacing: 0.04em;
         }
 
