@@ -12,8 +12,7 @@ quick_reference:
   - { k: "HQ", v: "Gölbaşı, Ankara" }
   - { k: "Branch", v: "Kadıköy, İstanbul" }
   - { k: "Domain", v: "RF · Broadcasting · Telecom" }
-  - { k: "Representation", v: "Andrew · CTE" }
-  - { k: "Distribution", v: "Rohde & Schwarz · PLISCH" }
+  - { k: "Representations", v: "Andrew · R&S · PLISCH · CTE" }
   - { k: "Deployed", v: "~500 FM/TV stations" }
   - { k: "In-house", v: "4 DUA2 UHF antenna" }
   - { k: "Factory", v: "Ankara (own facility)" }
@@ -73,28 +72,28 @@ The firm's documented operations covered radio and television broadcasting syste
 
 ## Uluslararası Temsilcilikler / International Representations
 
-The firm held distribution and technical representation in Turkey for four principal broadcast and RF infrastructure manufacturers:
+Turkey representations held by the firm during its active period (per company profile, late 1990s brochure):
 
 <div class="grid-distributors">
   <div class="dist-item">
     <strong>ANDREW CORPORATION</strong>
-    <span class="dist-country">Orland Park, Illinois, USA · <em>Türkiye Mümessili — primary representation</em></span>
-    <p>Coaxial cables and connectors; microwave transmission lines; high-performance microwave antenna systems; dehydrators for antenna line pressurization; satellite communication antennas engineered to system specification. Andrew radiating coaxial cable systems and distribution amplifiers for tunnel mobile communications — an Andrew specialty distinct from broadcast infrastructure.</p>
+    <span class="dist-country">USA</span>
+    <p>RF cables and connectors, microwave transmission lines, high-performance microwave antennas, satellite communication antennas, tunnel-comms radiating cable systems.</p>
   </div>
   <div class="dist-item">
     <strong>ROHDE &amp; SCHWARZ</strong>
-    <span class="dist-country">Munich, Germany</span>
-    <p>High-power television broadcasting systems and microprocessor-controlled transmitter networks. Broad range of broadcasting test and measurement instrumentation. Equipment backbone of the firm's PTT national-network deployments (TV-4 project, FM transmitter fleets).</p>
+    <span class="dist-country">Germany</span>
+    <p>High-power TV transmitters and microprocessor-controlled transmitter networks. Equipment backbone of the firm's PTT national-network deployments.</p>
   </div>
   <div class="dist-item">
     <strong>PLISCH NACHRICHTENTECHNIK</strong>
-    <span class="dist-country">Viernheim, Germany — founded 1955</span>
-    <p>Solid-state low-power TV transmitters; high-power tube-type TV transmitters; TV drivers and power amplifiers; broadcast test and measurement equipment; <strong>Digital Audio Broadcasting (DAB)</strong> systems — emerging-standard digital radio infrastructure. Modular, mobile, low-maintenance design.</p>
+    <span class="dist-country">Germany · founded 1955</span>
+    <p>Solid-state low-power and tube high-power TV transmitters, drivers, broadcast test and measurement equipment, Digital Audio Broadcasting (DAB) systems.</p>
   </div>
   <div class="dist-item">
     <strong>CTE INTERNATIONAL</strong>
-    <span class="dist-country">Reggio Emilia, Italy · <em>Sole Turkish representation for FM transmitters</em></span>
-    <p>FM radio transmitter line: <code>CTE 250 W</code> (adjustable 50–250 W, mono / stereo, local broadcast), <code>CTE 1 kW</code> (solid-state, wideband <code>87.5–108 MHz</code>, FET), and <code>CTE 5 kW</code> (FET-based solid-state). Used by Aydın Grup to commission Show Radyo, TGRT FM, Süper FM, Olay FM, and numerous regional FM stations. TGM and RTÜK compliant.</p>
+    <span class="dist-country">Italy</span>
+    <p>FM transmitter line — <code>CTE 250 W</code>, <code>CTE 1 kW</code>, <code>CTE 5 kW</code>. Used to commission Show Radyo, TGRT FM, Süper FM, Olay FM and numerous regional FM stations.</p>
   </div>
 </div>
 
