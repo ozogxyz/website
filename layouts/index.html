@@ -21,15 +21,17 @@
 
         body {
             font-family: var(--serif);
-            line-height: 1.5;
+            line-height: 1.4;
             margin: 0 auto;
-            padding: 32px 28px;
+            padding: 24px 28px;
             max-width: var(--measure);
             color: #111;
             background: #fff;
-            font-size: 15pt;
+            font-size: 14pt;
             font-feature-settings: "kern" 1, "liga" 1, "onum" 1;
         }
+
+        p { margin: 0 0 0.6em; }
 
         header {
             position: relative;
@@ -79,24 +81,24 @@
         h2 {
             font-family: var(--mono);
             font-size: 9.5pt;
-            margin-top: 32px;
-            margin-bottom: 14px;
+            margin-top: 18px;
+            margin-bottom: 8px;
             border-bottom: var(--rule);
-            padding-bottom: 6px;
+            padding-bottom: 4px;
             letter-spacing: 0.12em;
             text-transform: uppercase;
             font-weight: 700;
             color: #000;
-            overflow: hidden; /* establish BFC so rule stops at the floated infobox */
+            overflow: hidden;
         }
 
         h3 { font-weight: 600; margin: 0; }
 
         p { text-align: justify; margin: 0 0 1em; }
 
-        ul, ol { padding-left: 20px; margin: 0 0 1em; }
+        ul, ol { padding-left: 20px; margin: 0 0 0.6em; }
         ul { list-style-type: square; }
-        li { margin-bottom: 10px; text-align: justify; font-size: 13.5pt; color: #111; }
+        li { margin-bottom: 4px; text-align: justify; font-size: 13pt; color: #111; }
 
         code {
             font-family: var(--mono);
@@ -177,13 +179,13 @@
             margin: 0;
             display: grid;
             grid-template-columns: 1fr;
-            row-gap: 6px;
+            row-gap: 2px;
         }
         .quick-ref .qr-row {
             display: grid;
-            grid-template-columns: 95px 1fr;
+            grid-template-columns: 115px 1fr;
             column-gap: 10px;
-            line-height: 1.5;
+            line-height: 1.35;
             align-items: baseline;
         }
         .quick-ref .qr-k, .quick-ref .qr-v { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -236,7 +238,7 @@
             padding: 16px 18px;
             border-right: var(--rule);
             border-bottom: var(--rule);
-            font-size: 12.5pt;
+            font-size: 14pt;
         }
         .dist-item:nth-child(2n) { border-right: none; }
         .dist-item:nth-last-child(-n+2) { border-bottom: none; }
@@ -256,7 +258,7 @@
             letter-spacing: 0.03em;
             margin: 2px 0 8px;
         }
-        .dist-item p { margin: 0; font-size: 12.5pt; line-height: 1.5; }
+        .dist-item p { margin: 0; font-size: 14pt; line-height: 1.5; }
 
         /* 4 DUA2 — figure left of spec block */
         .spec-with-figure {
@@ -288,8 +290,8 @@
 
         /* Spec block — data sheet aesthetic */
         .spec-block {
-            margin: 18px 0;
-            padding: 14px 18px;
+            margin: 10px 0;
+            padding: 8px 12px;
             border-top: 1px solid var(--brand-gold);
             border-bottom: 1px solid var(--brand-gold);
         }
@@ -394,9 +396,9 @@
         .archive-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 16px 14px;
-            margin: 20px 0;
-            overflow: hidden; /* BFC */
+            gap: 8px 8px;
+            margin: 12px 0;
+            overflow: hidden;
         }
         .plate {
             display: block;
@@ -457,7 +459,7 @@
             margin-top: 50px;
             padding-top: 22px;
             border-top: 4px solid var(--brand-blue);
-            font-size: 12.5pt;
+            font-size: 14pt;
             line-height: 1.7;
         }
         .contact-block h3 {

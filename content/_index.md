@@ -129,7 +129,7 @@ The firm's principal in-house engineered product was a four-dipole UHF televisio
         <div class="spec-key">Max Wind Speed</div><div class="spec-val">220 km/h</div>
         <div class="spec-key">Weight</div><div class="spec-val">~12 kg</div>
         <div class="spec-key">Dimensions</div><div class="spec-val">892 × 485 × 190 mm</div>
-        <div class="spec-key">Mast Diameter</div><div class="spec-val">80 – 120 mm (round/square)</div>
+        <div class="spec-key">Mast Diameter</div><div class="spec-val">80–120 mm</div>
         <div class="spec-key">Construction</div><div class="spec-val">Aluminum elements, polyester radome</div>
       </div>
     </div>
