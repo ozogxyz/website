@@ -392,6 +392,49 @@
             font-feature-settings: "onum" 1, "kern" 1;
         }
 
+        /* References ledger — US Graphics terminal aesthetic */
+        .ref-ledger {
+            width: auto;
+            border-collapse: collapse;
+            font-family: var(--mono);
+            font-size: 9.5pt;
+            line-height: 1.5;
+            margin: 10px 0;
+        }
+        .ref-ledger thead th {
+            text-align: left;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 8pt;
+            color: #777;
+            padding: 5px 10px 4px;
+        }
+        .ref-ledger tbody td {
+            padding: 5px 10px;
+            vertical-align: top;
+        }
+        .ref-ledger tbody td {
+            white-space: nowrap;
+        }
+        .ref-ledger tbody td:first-child {
+            color: #000;
+            font-weight: 500;
+        }
+        .ref-ledger tbody td:nth-child(3),
+        .ref-ledger tbody td:nth-child(4) {
+            color: #555;
+            font-size: 8.5pt;
+        }
+        .ref-ledger tfoot td {
+            text-align: right;
+            font-size: 9pt;
+            color: #333;
+            padding: 14px 10px 4px;
+            letter-spacing: 0.02em;
+        }
+        .ref-ledger tfoot strong { font-weight: 700; color: #000; }
+
         /* Archive plate grid */
         .archive-grid {
             display: grid;

@@ -394,6 +394,49 @@
         }
 
          
+        .ref-ledger {
+            width: auto;
+            border-collapse: collapse;
+            font-family: var(--mono);
+            font-size: 9.5pt;
+            line-height: 1.5;
+            margin: 10px 0;
+        }
+        .ref-ledger thead th {
+            text-align: left;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 8pt;
+            color: #777;
+            padding: 5px 10px 4px;
+        }
+        .ref-ledger tbody td {
+            padding: 5px 10px;
+            vertical-align: top;
+        }
+        .ref-ledger tbody td {
+            white-space: nowrap;
+        }
+        .ref-ledger tbody td:first-child {
+            color: #000;
+            font-weight: 500;
+        }
+        .ref-ledger tbody td:nth-child(3),
+        .ref-ledger tbody td:nth-child(4) {
+            color: #555;
+            font-size: 8.5pt;
+        }
+        .ref-ledger tfoot td {
+            text-align: right;
+            font-size: 9pt;
+            color: #333;
+            padding: 14px 10px 4px;
+            letter-spacing: 0.02em;
+        }
+        .ref-ledger tfoot strong { font-weight: 700; color: #000; }
+
+         
         .archive-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
@@ -608,7 +651,7 @@
         <div class="article-main">
             <div class="markdown-content">
                 <h2 id="tarihçe--history">Tarihçe / History</h2>
-<p>The firm was founded in the late 1980s by Aydın Özoğlu (METU Electrical-Electronics Engineering, 1984) as <strong>Aydın Mühendislik</strong>, headquartered in Gölbaşı, Ankara, with an İstanbul branch in Kadıköy. It was subsequently incorporated as <strong>Aydın Grup Mühendislik Ticaret Limited Şirketi</strong>, the canonical form retained today. The firm&rsquo;s principal commercial activity ran through the 1990s, building broadcasting infrastructure for the rapid expansion of Turkish private television and radio during that decade in parallel with state-network work for the PTT.</p>
+<p>The firm was founded in the late 1980s by Aydın Özoğlu (METU Electrical-Electronics Engineering, 1984) as <strong>Aydın Mühendislik</strong>, headquartered in Gölbaşı, Ankara, with an İstanbul branch in Kadıköy. The firm&rsquo;s principal commercial activity ran through the 1990s, building broadcasting infrastructure for the rapid expansion of Turkish private television and radio during that decade in parallel with state-network work for the PTT.</p>
 <h2 id="faaliyet-alanı--scope-of-activity">Faaliyet Alanı / Scope of Activity</h2>
 <blockquote class="scope-quote">
 "The field of activities of Aydın Grup are electronics, telecommunications and FM&amp;TV Broadcasting Transmitters."
@@ -754,11 +797,30 @@
   </div>
 </div>
 <h2 id="referanslar--references">Referanslar / References</h2>
-<p>Documented engagements during the firm&rsquo;s active period, drawn from the primary contract record of the time.</p>
-<p>Turn-key commissioning of national private television networks included <strong>Show TV</strong>, <strong>Cine 5</strong>, and <strong>TGRT</strong> (television), supplied principally with Rohde &amp; Schwarz and PLISCH transmitter equipment. Turn-key FM radio commissioning was carried out for <strong>Show Radyo</strong>, <strong>TGRT FM</strong>, <strong>Süper FM</strong>, and <strong>Olay FM</strong>, using CTE transmitters under the firm&rsquo;s Turkish representation.</p>
-<p>State-network work for the <strong>PTT</strong> (Posta ve Telgraf Teşkilatı) included the <em>TV-4 project</em> — seven 20 kW UHF television transmitter installations with one-year maintenance, equipped by Rohde &amp; Schwarz — and an FM transmitter fleet totaling 86 units across two contracts (71 and 15 units respectively), also Rohde &amp; Schwarz, with multi-year maintenance terms. Six 6-metre satellite TVRO antennas were delivered for the same client.</p>
-<p>Structural references include the <strong>Çamlıca transmitter complex</strong>, with a 100-metre self-supporting galvanized tower carrying a TV/FM antenna system, installed prior to the site&rsquo;s modern reconfiguration. Other quantified deployments documented in the brochure record include approximately 72 × 1 kW TV/FM transmitter installations, 27 × FM/TV transmitter units delivered against <strong>TGART</strong> contracts (in 250 W, 8 kW EIA 7/8, and other configurations), and Andrew coaxial transmission line supply across various project scales.</p>
-<p>By its own primary-source figure, the firm set up approximately five hundred FM and TV broadcasting stations across Turkey for governmental and private operators over its active period.</p>
+<table class="ref-ledger">
+<thead>
+<tr><th>Project</th><th>Description</th><th>Client</th><th>Equipment</th></tr>
+</thead>
+<tbody>
+<tr><td>Show TV</td><td>National private TV network</td><td>Turn-key</td><td>R&amp;S / PLISCH</td></tr>
+<tr><td>Cine 5</td><td>National private TV network</td><td>Turn-key</td><td>R&amp;S / PLISCH</td></tr>
+<tr><td>TGRT</td><td>National private TV network</td><td>Turn-key</td><td>R&amp;S / PLISCH</td></tr>
+<tr><td>Show Radyo</td><td>FM radio network</td><td>Turn-key</td><td>CTE</td></tr>
+<tr><td>TGRT FM</td><td>FM radio network</td><td>Turn-key</td><td>CTE</td></tr>
+<tr><td>Süper FM</td><td>FM radio network</td><td>Turn-key</td><td>CTE</td></tr>
+<tr><td>Olay FM</td><td>FM radio network</td><td>Turn-key</td><td>CTE</td></tr>
+<tr><td>TV-4 project</td><td>7 × 20 kW UHF TV transmitters · 1-yr maintenance</td><td>PTT</td><td>R&amp;S</td></tr>
+<tr><td>PTT FM fleet</td><td>86 units (71 + 15) · multi-year maintenance</td><td>PTT</td><td>R&amp;S</td></tr>
+<tr><td>PTT TVRO</td><td>6 × 6 m satellite antennas</td><td>PTT</td><td>—</td></tr>
+<tr><td>Çamlıca</td><td>100 m self-supporting tower + TV/FM antenna system</td><td>Structural</td><td>—</td></tr>
+<tr><td>TGART</td><td>27 × FM/TV units (250 W · 8 kW EIA 7/8 · other)</td><td>TGART</td><td>—</td></tr>
+<tr><td>Various</td><td>≈ 72 × 1 kW TX installations</td><td>—</td><td>—</td></tr>
+<tr><td>Andrew line</td><td>Coaxial transmission supply across project scales</td><td>Various</td><td>Andrew</td></tr>
+</tbody>
+<tfoot>
+<tr><td colspan="4"><strong>≈ 500 FM and TV broadcasting stations</strong> deployed across Turkey · governmental and private operators · primary-source aggregate figure</td></tr>
+</tfoot>
+</table>
 <h2 id="birincil-kaynak-arşivi--primary-source-archive">Birincil Kaynak Arşivi / Primary Source Archive</h2>
 <p>Original technical brochure plates, c. late 1990s, bilingual Turkish / English. The corporate record below precedes the firm&rsquo;s digital presence and is reproduced here as the primary documentary source.</p>
 

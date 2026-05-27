@@ -60,7 +60,7 @@ contact:
 
 ## Tarihçe / History
 
-The firm was founded in the late 1980s by Aydın Özoğlu (METU Electrical-Electronics Engineering, 1984) as **Aydın Mühendislik**, headquartered in Gölbaşı, Ankara, with an İstanbul branch in Kadıköy. It was subsequently incorporated as **Aydın Grup Mühendislik Ticaret Limited Şirketi**, the canonical form retained today. The firm's principal commercial activity ran through the 1990s, building broadcasting infrastructure for the rapid expansion of Turkish private television and radio during that decade in parallel with state-network work for the PTT.
+The firm was founded in the late 1980s by Aydın Özoğlu (METU Electrical-Electronics Engineering, 1984) as **Aydın Mühendislik**, headquartered in Gölbaşı, Ankara, with an İstanbul branch in Kadıköy. The firm's principal commercial activity ran through the 1990s, building broadcasting infrastructure for the rapid expansion of Turkish private television and radio during that decade in parallel with state-network work for the PTT.
 
 ## Faaliyet Alanı / Scope of Activity
 
@@ -138,15 +138,30 @@ The firm's principal in-house engineered product was a four-dipole UHF televisio
 
 ## Referanslar / References
 
-Documented engagements during the firm's active period, drawn from the primary contract record of the time.
-
-Turn-key commissioning of national private television networks included **Show TV**, **Cine 5**, and **TGRT** (television), supplied principally with Rohde &amp; Schwarz and PLISCH transmitter equipment. Turn-key FM radio commissioning was carried out for **Show Radyo**, **TGRT FM**, **Süper FM**, and **Olay FM**, using CTE transmitters under the firm's Turkish representation.
-
-State-network work for the **PTT** (Posta ve Telgraf Teşkilatı) included the *TV-4 project* — seven 20 kW UHF television transmitter installations with one-year maintenance, equipped by Rohde &amp; Schwarz — and an FM transmitter fleet totaling 86 units across two contracts (71 and 15 units respectively), also Rohde &amp; Schwarz, with multi-year maintenance terms. Six 6-metre satellite TVRO antennas were delivered for the same client.
-
-Structural references include the **Çamlıca transmitter complex**, with a 100-metre self-supporting galvanized tower carrying a TV/FM antenna system, installed prior to the site's modern reconfiguration. Other quantified deployments documented in the brochure record include approximately 72 × 1 kW TV/FM transmitter installations, 27 × FM/TV transmitter units delivered against **TGART** contracts (in 250 W, 8 kW EIA 7/8, and other configurations), and Andrew coaxial transmission line supply across various project scales.
-
-By its own primary-source figure, the firm set up approximately five hundred FM and TV broadcasting stations across Turkey for governmental and private operators over its active period.
+<table class="ref-ledger">
+<thead>
+<tr><th>Project</th><th>Description</th><th>Client</th><th>Equipment</th></tr>
+</thead>
+<tbody>
+<tr><td>Show TV</td><td>National private TV network</td><td>Turn-key</td><td>R&amp;S / PLISCH</td></tr>
+<tr><td>Cine 5</td><td>National private TV network</td><td>Turn-key</td><td>R&amp;S / PLISCH</td></tr>
+<tr><td>TGRT</td><td>National private TV network</td><td>Turn-key</td><td>R&amp;S / PLISCH</td></tr>
+<tr><td>Show Radyo</td><td>FM radio network</td><td>Turn-key</td><td>CTE</td></tr>
+<tr><td>TGRT FM</td><td>FM radio network</td><td>Turn-key</td><td>CTE</td></tr>
+<tr><td>Süper FM</td><td>FM radio network</td><td>Turn-key</td><td>CTE</td></tr>
+<tr><td>Olay FM</td><td>FM radio network</td><td>Turn-key</td><td>CTE</td></tr>
+<tr><td>TV-4 project</td><td>7 × 20 kW UHF TV transmitters · 1-yr maintenance</td><td>PTT</td><td>R&amp;S</td></tr>
+<tr><td>PTT FM fleet</td><td>86 units (71 + 15) · multi-year maintenance</td><td>PTT</td><td>R&amp;S</td></tr>
+<tr><td>PTT TVRO</td><td>6 × 6 m satellite antennas</td><td>PTT</td><td>—</td></tr>
+<tr><td>Çamlıca</td><td>100 m self-supporting tower + TV/FM antenna system</td><td>Structural</td><td>—</td></tr>
+<tr><td>TGART</td><td>27 × FM/TV units (250 W · 8 kW EIA 7/8 · other)</td><td>TGART</td><td>—</td></tr>
+<tr><td>Various</td><td>≈ 72 × 1 kW TX installations</td><td>—</td><td>—</td></tr>
+<tr><td>Andrew line</td><td>Coaxial transmission supply across project scales</td><td>Various</td><td>Andrew</td></tr>
+</tbody>
+<tfoot>
+<tr><td colspan="4"><strong>≈ 500 FM and TV broadcasting stations</strong> deployed across Turkey · governmental and private operators · primary-source aggregate figure</td></tr>
+</tfoot>
+</table>
 
 ## Birincil Kaynak Arşivi / Primary Source Archive
 
