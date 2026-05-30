@@ -16,6 +16,7 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
+
 body {
     font-family: var(--serif);
     line-height: 1.4;
@@ -484,6 +485,11 @@ footer {
 
 @media (max-width: 820px) {
     body { padding: 28px 22px; }
+    p { text-align: left; hyphens: auto; -webkit-hyphens: auto; }
+    h1 { font-size: 22pt; }
+    header { grid-template-columns: 56px 1fr; gap: 14px; }
+    .corp-mark { width: 56px; height: 56px; }
+    .subtitle { line-height: 1.5; }
     .article-cols { grid-template-columns: 1fr; gap: 24px; }
     .quick-ref { position: static; }
     .grid-distributors { grid-template-columns: 1fr; }
@@ -495,4 +501,85 @@ footer {
     .contact-2col, .archive-2col { grid-template-columns: 1fr; }
     .spec-block--two-col { grid-template-columns: 1fr; }
     .spec-with-figure { grid-template-columns: 1fr; gap: 18px; }
+
+    /* Kule tower (magnum opus): cap width and center on mobile so it stays
+       a deliberate photograph instead of stretching to full card width. */
+    .qr-figure {
+        max-width: 240px;
+        margin: 0 auto 16px;
+    }
+    .qr-figure figcaption { text-align: center; }
+
+    /* References ledger on mobile: reflow each row as a stacked block.
+       Row layout:
+         line 1: project name (bold, left)   ·   client (small, right)
+         line 2: description                  (full width)
+         line 3: equipment                    (small, full width)
+       Hairline between rows. No horizontal scroll. */
+    .ref-ledger-wrap { overflow: visible; margin: 10px 0; padding: 0; }
+    .ref-ledger,
+    .ref-ledger thead,
+    .ref-ledger tbody,
+    .ref-ledger tfoot,
+    .ref-ledger tr,
+    .ref-ledger td,
+    .ref-ledger th { display: block; width: auto; }
+    .ref-ledger thead { display: none; }
+    .ref-ledger tbody tr {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        column-gap: 12px;
+        padding: 8px 0;
+        border-top: 1px solid #ddd;
+    }
+    .ref-ledger tbody tr:first-child { border-top: none; }
+    .ref-ledger tbody td {
+        padding: 0;
+        white-space: normal;
+    }
+    .ref-ledger tbody td:nth-child(1) {
+        grid-column: 1; grid-row: 1;
+        font-weight: 700; color: #000; font-size: 9.5pt;
+    }
+    .ref-ledger tbody td:nth-child(3) {
+        grid-column: 2; grid-row: 1;
+        text-align: right; font-size: 8.5pt; color: #555;
+    }
+    .ref-ledger tbody td:nth-child(2) {
+        grid-column: 1 / -1; grid-row: 2;
+        font-size: 9pt; margin-top: 3px;
+    }
+    .ref-ledger tbody td:nth-child(4) {
+        grid-column: 1 / -1; grid-row: 3;
+        font-size: 8.5pt; color: #555; margin-top: 2px;
+    }
+    .ref-ledger tfoot tr {
+        border-top: 1px solid #111;
+        margin-top: 14px;
+        padding-top: 10px;
+        display: block;
+    }
+    .ref-ledger tfoot td {
+        text-align: left;
+        padding: 0;
+        white-space: normal;
+        font-size: 9pt;
+        line-height: 1.5;
+    }
+
+    /* QR card: shrink label column and let long values wrap to next line
+       instead of ellipsis-clipping. */
+    .quick-ref .qr-row {
+        grid-template-columns: 90px 1fr;
+    }
+    .quick-ref .qr-k,
+    .quick-ref .qr-v {
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+    }
+
+    /* Archive grid (on archive.html) captions: lift to 9pt so they're
+       comfortably readable beside the larger thumbs on mobile. */
+    .plate-caption { font-size: 9pt; }
 }
