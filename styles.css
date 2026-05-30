@@ -1,12 +1,11 @@
-/* Font import — only weights actually used in styles.css.
-   Garamond: 400 body, 600 <strong>/h3/.role-name, italic 400 .scope-quote.
-   Plex Mono: 400 default, 500 ledger first column, 700 headers/labels.
+/* Font import — Garamond only. Hierarchy through weight, italic, small caps,
+   tabular figures, and color. No mono anywhere on the page.
+   Weights: 400 body & italic, 600 emphasis & small-caps labels.
    &display=swap = render fallback immediately, swap to webfont when ready. */
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
 
 :root {
     --measure: 1280px;
-    --mono: "IBM Plex Mono", "Consolas", "Courier New", monospace;
     --serif: "EB Garamond", "Garamond", "Baskerville", "Times New Roman", Times, serif;
     --rule: 1px solid #111;
     --rule-soft: 1px solid #B5984A; /* internal block dividers — brand gold */
@@ -19,7 +18,7 @@
 
 body {
     font-family: var(--serif);
-    line-height: 1.4;
+    line-height: 1.45;
     margin: 0 auto;
     padding: 24px 28px;
     max-width: var(--measure);
@@ -63,40 +62,43 @@ h1 { font-size: 30pt; margin: 0; font-weight: normal; letter-spacing: -0.5px; li
 
 .subtitle {
     margin-top: 12px;
-    font-family: var(--mono);
-    font-size: 10pt;
-    color: #444;
-    letter-spacing: 0.06em;
-    line-height: 1.7;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 12pt;
+    color: #555;
+    line-height: 1.5;
 }
-.subtitle .est { color: #111; font-weight: 700; }
+.subtitle .est { font-style: normal; color: #111; font-weight: 600; }
 .subtitle .sep { color: #aaa; margin: 0 8px; }
 
+/* Section headers — uppercase serif, gold-rule underline. */
 h2 {
-    font-family: var(--mono);
-    font-size: 9.5pt;
-    margin-top: 18px;
-    margin-bottom: 8px;
+    font-family: var(--serif);
+    font-size: 12pt;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-weight: 600;
+    color: #000;
+    margin-top: 24px;
+    margin-bottom: 10px;
     border-bottom: var(--rule);
     padding-bottom: 4px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    font-weight: 700;
-    color: #000;
-    overflow: hidden;
 }
 
 h3 { font-weight: 600; margin: 0; }
 
 p { text-align: justify; margin: 0 0 1em; }
 
+/* code element kept for semantic clarity, visually identical to surrounding
+   text except for tabular figures (clean numeric alignment in any context). */
 code {
-    font-family: var(--mono);
-    font-size: 10.5pt;
+    font-family: var(--serif);
+    font-size: 1em;
     background: none;
     padding: 0;
-    color: #000;
-    font-weight: 400;
+    color: inherit;
+    font-weight: inherit;
+    font-feature-settings: "kern" 1, "liga" 1, "tnum" 1;
 }
 
 strong { font-weight: 600; color: #000; }
@@ -111,16 +113,13 @@ strong { font-weight: 600; color: #000; }
 .article-main { min-width: 0; }
 .article-aside { min-width: 0; }
 
-/* Quick reference data card — sticky infobox.
-   Berkeley Mono only present on author's local machine (desktop license);
-   visitors fall back to IBM Plex Mono. Do NOT commit any Berkeley webfont
-   files — that would require a separate web license from usgraphics.com. */
+/* Quick reference data card — sticky infobox */
 .quick-ref {
     position: sticky;
     top: 24px;
     padding: 14px 0;
-    font-family: "Berkeley Mono", var(--mono);
-    font-size: 9.5pt;
+    font-family: var(--serif);
+    font-size: 12pt;
 }
 .qr-figure {
     margin: 0 -4px 12px;
@@ -133,19 +132,20 @@ strong { font-weight: 600; color: #000; }
     background: #fff;
 }
 .qr-figure figcaption {
-    font-family: var(--mono);
-    font-size: 8.5pt;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 11pt;
     color: #555;
     margin-top: 6px;
     line-height: 1.4;
-    letter-spacing: 0.02em;
     padding: 0 2px;
 }
 .quick-ref-heading {
-    font-size: 8.5pt;
+    font-family: var(--serif);
+    font-size: 10pt;
     text-transform: uppercase;
     letter-spacing: 0.14em;
-    font-weight: 700;
+    font-weight: 600;
     color: #000;
     margin: 0 0 10px;
 }
@@ -153,186 +153,134 @@ strong { font-weight: 600; color: #000; }
     margin: 0;
     display: grid;
     grid-template-columns: 1fr;
-    row-gap: 7px;
+    row-gap: 5px;
 }
+/* Reset browser-default <dd> indent so the grid-based qr-row layout is intact. */
+.quick-ref dd, .quick-ref dt { margin: 0; padding: 0; }
 .quick-ref .qr-row {
     display: grid;
-    grid-template-columns: 130px 1fr;
+    grid-template-columns: 120px 1fr;
     column-gap: 10px;
-    line-height: 1.35;
+    line-height: 1.4;
     align-items: baseline;
 }
-.quick-ref .qr-k, .quick-ref .qr-v { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.quick-ref .qr-k { color: #777; letter-spacing: 0.04em; }
+.quick-ref .qr-k { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.quick-ref .qr-v { white-space: normal; overflow: visible; text-overflow: clip; }
+.quick-ref .qr-k {
+    color: #595959;
+    font-size: 12pt;
+}
 .quick-ref .qr-v { color: #000; }
 
-/* Scope source citation */
-.scope-quote {
+/* Foreign cooperations ledger — CSS grid rows, NOT a <table>.
+   Tables inside CSS grid items have a sizing bug where width:100% resolves
+   against the table's content min-width rather than the grid track width,
+   causing horizontal escape. Grid rows respect the parent grid track. */
+.partners-ledger {
     font-family: var(--serif);
-    font-style: italic;
-    font-size: 13.5pt;
-    line-height: 1.45;
-    margin: 8px 0 16px;
-    padding: 2px 0 2px 14px;
-    border-left: 2px solid var(--brand-gold);
-    color: #000;
-}
-.scope-quote cite {
-    display: block;
-    margin-top: 6px;
-    font-family: var(--mono);
-    font-style: normal;
-    font-size: 8.5pt;
-    color: #777;
-    letter-spacing: 0.04em;
-}
-
-/* Cooperations grid — hairline-only, no fills */
-.grid-distributors {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
-    margin: 18px 0;
-    border: var(--rule);
-    overflow: hidden;
-}
-.dist-item {
-    padding: 16px 18px;
-    border-right: var(--rule);
-    border-bottom: var(--rule);
-    font-size: 14pt;
-}
-.dist-item:nth-child(2n) { border-right: none; }
-.dist-item:nth-last-child(-n+2) { border-bottom: none; }
-.dist-item strong {
-    font-family: var(--mono);
-    font-size: 10pt;
-    color: #000;
-    font-weight: 700;
-    display: block;
-    letter-spacing: 0.05em;
-}
-.dist-item .dist-country {
-    display: block;
-    font-family: var(--mono);
-    font-size: 8.5pt;
-    color: #777;
-    letter-spacing: 0.03em;
-    margin: 2px 0 8px;
-}
-.dist-item p { margin: 0; font-size: 14pt; line-height: 1.5; }
-
-/* 4 DUA2 — figure left of spec block */
-.spec-with-figure {
-    display: grid;
-    grid-template-columns: 300px 1fr;
-    gap: 28px;
-    align-items: start;
-    margin: 18px 0;
-    overflow: hidden;
-}
-.spec-figure { margin: 0; }
-.spec-figure img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border: var(--rule);
-    padding: 5px;
-    background: #fff;
-}
-.spec-figure figcaption {
-    font-family: var(--mono);
-    font-size: 8.5pt;
-    color: #555;
-    margin-top: 6px;
-    line-height: 1.4;
-    letter-spacing: 0.02em;
-}
-.spec-with-figure .spec-block { margin: 0; }
-
-/* Spec block — data sheet aesthetic */
-.spec-block {
+    font-size: 12pt;
+    line-height: 1.5;
     margin: 10px 0;
-    padding: 8px 12px;
-    border-top: 1px solid var(--brand-gold);
-    border-bottom: 1px solid var(--brand-gold);
+    width: 100%;
 }
-.spec-block--two-col {
+.partners-head,
+.partners-row {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 34px;
-    row-gap: 8px;
+    grid-template-columns: 22% 16% 1fr;
+    gap: 16px;
+    padding: 4px 0;
+    align-items: baseline;
 }
-.spec-group { min-width: 0; }
-.spec-heading {
-    font-family: var(--mono);
-    font-size: 9pt;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    font-weight: 700;
-    color: #000;
-    margin: 0 0 8px;
+.partners-head {
+    border-bottom: 1px solid #ccc;
     padding-bottom: 4px;
-    border-bottom: var(--rule-soft);
+    margin-bottom: 2px;
 }
-.spec-grid {
-    display: grid;
-    grid-template-columns: max-content 1fr;
-    column-gap: 16px;
-    row-gap: 5px;
-    font-family: var(--mono);
+.partners-head span {
+    text-transform: uppercase;
     font-size: 10pt;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+    color: #595959;
 }
-.spec-key { color: #555; }
-.spec-val { color: #000; }
+.partners-row .p-mfr {
+    font-weight: 600;
+    color: #000;
+}
+.partners-row .p-country {
+    font-style: italic;
+    color: #555;
+    font-size: 11pt;
+}
+.partners-row .p-eq {
+    color: #111;
+}
+.partners-row .p-eq code {
+    font-family: var(--serif);
+    font-feature-settings: "tnum" 1;
+}
 
-/* References ledger — US Graphics terminal aesthetic */
+/* References ledger — pure serif with tabular figures for column alignment.
+   Hierarchy via weight (Project bold) and style (Client/Equipment italic gray). */
 .ref-ledger {
     width: auto;
     border-collapse: collapse;
-    font-family: var(--mono);
-    font-size: 9.5pt;
-    line-height: 1.35;
+    font-family: var(--serif);
+    font-size: 12pt;
+    line-height: 1.5;
+    font-feature-settings: "kern" 1, "liga" 1, "tnum" 1;
     margin: 10px 0;
 }
 .ref-ledger thead th {
+    font-family: var(--serif);
     text-align: left;
-    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-size: 8pt;
-    color: #777;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    font-size: 10pt;
+    color: #595959;
     padding: 5px 10px 4px;
+    border-bottom: 1px solid #ccc;
 }
 .ref-ledger tbody td {
-    padding: 3px 10px;
+    padding: 4px 10px;
     vertical-align: top;
     white-space: nowrap;
+    color: #111;
+    font-size: 12pt;
 }
 .ref-ledger tbody td:first-child {
+    /* Project name in bold — anchors each row visually. */
+    font-weight: 600;
     color: #000;
-    font-weight: 500;
 }
 .ref-ledger tbody td:nth-child(3),
 .ref-ledger tbody td:nth-child(4) {
     color: #555;
-    font-size: 8.5pt;
+    font-style: italic;
+    font-size: 11pt;
+}
+.ref-ledger tbody td code {
+    /* Inline numbers / units — same serif as surrounding text, just with
+       tabular figures inherited from .ref-ledger. Element kept semantically. */
+    font-family: var(--serif);
 }
 .ref-ledger tfoot td {
     text-align: right;
-    font-size: 9pt;
+    font-style: italic;
+    font-size: 11pt;
     color: #333;
     padding: 14px 10px 4px;
-    letter-spacing: 0.02em;
+    border-top: 1px solid #ccc;
 }
-.ref-ledger tfoot strong { font-weight: 700; color: #000; }
+.ref-ledger tfoot strong { font-style: normal; font-weight: 600; color: #000; }
 
 /* Archive link — when grid is moved to archive.html */
 .archive-link {
-    font-family: var(--mono);
-    font-size: 10pt;
+    font-family: var(--serif);
+    font-size: 13pt;
+    font-weight: 600;
     margin: 14px 0 8px;
-    letter-spacing: 0.02em;
 }
 
 /* Archive plate grid (used on archive.html; was on index.html until split) */
@@ -368,16 +316,17 @@ strong { font-weight: 600; color: #000; }
 .plate:hover .plate-frame img { transform: scale(1.04); }
 .plate-caption {
     display: block;
-    font-family: var(--mono);
-    font-size: 8.5pt;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 11pt;
     color: #555;
     margin-top: 6px;
     line-height: 1.4;
-    letter-spacing: 0.02em;
 }
 .plate-index {
+    font-style: normal;
     color: #000;
-    font-weight: 700;
+    font-weight: 600;
     margin-right: 6px;
 }
 
@@ -387,14 +336,14 @@ strong { font-weight: 600; color: #000; }
     padding-top: 22px;
     border-top: 4px solid var(--brand-blue);
     font-size: 14pt;
-    line-height: 1.7;
+    line-height: 1.6;
 }
 .contact-block h3 {
-    font-family: var(--mono);
-    font-size: 9pt;
+    font-family: var(--serif);
+    font-size: 12pt;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-weight: 700;
+    letter-spacing: 0.14em;
+    font-weight: 600;
     color: #000;
     margin: 0 0 14px;
 }
@@ -405,11 +354,11 @@ strong { font-weight: 600; color: #000; }
     margin-bottom: 22px;
 }
 .contact-role .role-label {
-    font-family: var(--mono);
-    font-size: 9pt;
+    font-family: var(--serif);
+    font-size: 10pt;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #777;
+    letter-spacing: 0.12em;
+    color: #595959;
     display: block;
     margin-bottom: 2px;
 }
@@ -419,11 +368,11 @@ strong { font-weight: 600; color: #000; }
 }
 .contact-role .role-credential {
     display: block;
-    font-family: var(--mono);
-    font-size: 9pt;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 11pt;
     color: #555;
     margin-top: 1px;
-    letter-spacing: 0.02em;
 }
 
 .contact-direct, .contact-archive {
@@ -438,12 +387,12 @@ strong { font-weight: 600; color: #000; }
     margin-bottom: 3px;
 }
 .contact-direct .k, .contact-archive .k {
-    font-family: var(--mono);
-    font-size: 9pt;
+    font-family: var(--serif);
+    font-size: 10pt;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #777;
-    min-width: 100px;
+    letter-spacing: 0.12em;
+    color: #595959;
+    min-width: 110px;
     padding-top: 4px;
 }
 .contact-2col,
@@ -454,12 +403,12 @@ strong { font-weight: 600; color: #000; }
 }
 .contact-archive { color: #333; }
 .contact-archive .archive-note {
-    font-family: var(--mono);
-    font-size: 8.5pt;
-    color: #999;
-    letter-spacing: 0.04em;
-    margin-bottom: 8px;
+    font-family: var(--serif);
+    font-size: 10pt;
     text-transform: uppercase;
+    color: #757575;
+    letter-spacing: 0.12em;
+    margin-bottom: 8px;
 }
 
 a {
@@ -472,24 +421,33 @@ a.plate { border-bottom: none; }
 
 footer {
     margin-top: 60px;
-    font-family: var(--mono);
-    font-size: 8.5pt;
-    color: #777;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 11pt;
+    color: #595959;
     border-top: var(--rule);
     padding-top: 14px;
-    letter-spacing: 0.05em;
-    line-height: 1.7;
+    line-height: 1.6;
 }
 .footer-line { display: block; }
-.footer-steward { color: #555; margin-top: 2px; }
 
 @media (max-width: 820px) {
-    body { padding: 28px 22px; }
+    body { padding: 18px 22px; }
     p { text-align: left; hyphens: auto; -webkit-hyphens: auto; }
     h1 { font-size: 22pt; }
-    header { grid-template-columns: 56px 1fr; gap: 14px; }
-    .corp-mark { width: 56px; height: 56px; }
-    .subtitle { line-height: 1.5; }
+    header {
+        grid-template-columns: 48px 1fr;
+        gap: 14px;
+        margin-bottom: 18px;
+        padding-bottom: 10px;
+    }
+    .corp-mark { width: 48px; height: 48px; }
+    .subtitle {
+        margin-top: 6px;
+        font-size: 10pt;
+        line-height: 1.4;
+    }
+    .subtitle .sep { margin: 0 5px; }
     .article-cols {
         display: flex;
         flex-direction: column;
@@ -497,15 +455,14 @@ footer {
     }
     .article-aside { order: -1; }
     .quick-ref { position: static; }
-    .grid-distributors { grid-template-columns: 1fr; }
-    .dist-item { border-right: none !important; }
-    .dist-item:nth-last-child(-n+2) { border-bottom: var(--rule); }
-    .dist-item:last-child { border-bottom: none; }
+    /* Partners ledger on mobile: same stacked-card reflow as References
+       ledger uses (declared further below), with Country instead of Client
+       on the right of the head line and Equipment as the body. The generic
+       .ref-ledger mobile rules already handle this since .partners-ledger
+       inherits .ref-ledger structure. */
     .archive-grid { grid-template-columns: repeat(2, 1fr); }
     .contact-roles { grid-template-columns: 1fr; }
     .contact-2col, .archive-2col { grid-template-columns: 1fr; }
-    .spec-block--two-col { grid-template-columns: 1fr; }
-    .spec-with-figure { grid-template-columns: 1fr; gap: 18px; }
 
     /* Kule tower (magnum opus): cap width and center on mobile so it stays
        a deliberate photograph instead of stretching to full card width. */
@@ -517,9 +474,9 @@ footer {
 
     /* References ledger on mobile: reflow each row as a stacked block.
        Row layout:
-         line 1: project name (bold, left)   ·   client (small, right)
+         line 1: project name (bold, left)   ·   client (italic, right)
          line 2: description                  (full width)
-         line 3: equipment                    (small, full width)
+         line 3: equipment                    (italic, full width)
        Hairline between rows. No horizontal scroll. */
     .ref-ledger-wrap { overflow: visible; margin: 10px 0; padding: 0; }
     .ref-ledger,
@@ -544,19 +501,19 @@ footer {
     }
     .ref-ledger tbody td:nth-child(1) {
         grid-column: 1; grid-row: 1;
-        font-weight: 700; color: #000; font-size: 9.5pt;
+        font-weight: 700; color: #000; font-size: 12pt;
     }
     .ref-ledger tbody td:nth-child(3) {
         grid-column: 2; grid-row: 1;
-        text-align: right; font-size: 8.5pt; color: #555;
+        text-align: right; font-style: italic; font-size: 11pt; color: #555;
     }
     .ref-ledger tbody td:nth-child(2) {
         grid-column: 1 / -1; grid-row: 2;
-        font-size: 9pt; margin-top: 3px;
+        font-size: 11.5pt; margin-top: 3px;
     }
     .ref-ledger tbody td:nth-child(4) {
         grid-column: 1 / -1; grid-row: 3;
-        font-size: 8.5pt; color: #555; margin-top: 2px;
+        font-style: italic; font-size: 11pt; color: #555; margin-top: 2px;
     }
     .ref-ledger tfoot tr {
         border-top: 1px solid #111;
@@ -568,14 +525,38 @@ footer {
         text-align: left;
         padding: 0;
         white-space: normal;
-        font-size: 9pt;
+        font-size: 11.5pt;
         line-height: 1.5;
+    }
+
+    /* Partners ledger mobile: stack each row — Manufacturer top-left,
+       Country top-right italic, Equipment full-width below. Mirrors the
+       References ledger mobile pattern. */
+    .partners-head { display: none; }
+    .partners-row {
+        grid-template-columns: 1fr auto;
+        gap: 4px 12px;
+        padding: 8px 0;
+        border-top: 1px solid #ddd;
+    }
+    .partners-row:first-of-type { border-top: none; }
+    .partners-row .p-mfr {
+        grid-column: 1; grid-row: 1;
+        font-size: 12pt;
+    }
+    .partners-row .p-country {
+        grid-column: 2; grid-row: 1;
+        text-align: right;
+    }
+    .partners-row .p-eq {
+        grid-column: 1 / -1; grid-row: 2;
+        font-size: 11.5pt;
     }
 
     /* QR card: shrink label column and let long values wrap to next line
        instead of ellipsis-clipping. */
     .quick-ref .qr-row {
-        grid-template-columns: 90px 1fr;
+        grid-template-columns: 100px 1fr;
     }
     .quick-ref .qr-k,
     .quick-ref .qr-v {
@@ -584,7 +565,7 @@ footer {
         text-overflow: clip;
     }
 
-    /* Archive grid (on archive.html) captions: lift to 9pt so they're
-       comfortably readable beside the larger thumbs on mobile. */
-    .plate-caption { font-size: 9pt; }
+    /* Archive grid (on archive.html) captions: lift to 12pt italic
+       so they're comfortably readable beside the larger thumbs on mobile. */
+    .plate-caption { font-size: 12pt; }
 }
